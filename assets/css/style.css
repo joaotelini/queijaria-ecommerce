@@ -37,7 +37,7 @@ html {
     color: #AB8130;
 }
 
-.h1-login {
+.h1 {
     font-size: 26px;
     font-weight: bold;
     margin-left: 27px;
@@ -49,22 +49,12 @@ html {
     margin-top: 40px;
 }
 
-.email input {
+input {
     margin-top: 10px;
     border-radius: 7px;
     border: none;
     background-color: #F6F6F6;
-    width: 292px;
-    height: 25px;
-    font-size: 12px;
-}
-
-.senha input {
-    margin-top: 10px;
-    border-radius: 7px;
-    border: none;
-    background-color: #F6F6F6;
-    width: 292px;
+    width: 265px;
     height: 25px;
     font-size: 12px;
 }
@@ -98,4 +88,28 @@ input::placeholder {
     align-items: center;
     text-align: center;
     margin-top: 45px;
+}
+
+.div-cad {
+    margin: 15px 0 0 27px;
+}
+
+.box-cad {
+    width: 331px;
+    height: 750px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.container-cad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #AB8130;
+    height: 1000px;
+}
+
+.p-cadastro-div a{
+    text-decoration: none;
+    color: #AB8130;
 }

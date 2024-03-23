@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
+</head>
+<body>
+    <div class="container-cad">
+        <div class="box-cad">
+            <h1 class="h1">Cadastro</h1>
+            <form method="post" action="verify-cad.php">
+                <div class="div-cad">
+                    <p>Nome Completo</p>
+                    <input class="input-cad" type="text" placeholder="Digite seu nome completo" name="nome" id="nome">
+                </div>
+                <div class="div-cad">
+                    <p>E-mail</p>
+                    <input class="input-cad" placeholder="Digite seu email" type="email" name="email" id="email">
+                </div>
+                <div class="div-cad">
+                    <p>Senha</p>
+                    <input placeholder="Digite sua senha" name="senha" id="senha" type="password" class="input-cad">
+                </div>
+                <div class="div-cad">
+                    <p>Logradouro</p>
+                    <input placeholder="Digite seu logradouro" type="text" name="Logradouro" id="logradouro">
+                </div>
+                <div class="div-cad">
+                    <p>Número</p>
+                    <input type="number" name="numero" id="numero" placeholder="Digite o número do logradouro">
+                </div>
+                <div class="div-cad">
+                    <p>Bairro</p>
+                    <input type="text" name="Bairro" id="bairro" placeholder="Digite o nome do seu bairro">
+                </div>
+                <div class="div-cad">  
+                    <p>Celular</p>
+                    <input type="text" name="celular" id="celular" placeholder="Digite o numero do celular">
+                </div>
+                <div class="btn">
+                    <input type="submit" value="Cadastrar">
+                </div>
+            </form>
+            <div class="p-cadastro-div">
+                <p> 
+                    <a href="login.html">Voltar</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
