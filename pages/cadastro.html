@@ -38,7 +38,7 @@
                 </div>
                 <div class="div-cad">  
                     <p>Celular</p>
-                    <input type="text" maxlength="15" name="celular" id="celular" placeholder="(99)99999-9999" onkeyup="handlePhone(event)">
+                    <input type="text" maxlength="15" name="phone" id="phone" placeholder="(99)99999-9999" onkeypress="mask(this, mphone)" onblur="mask(this, mphone);">
                 </div>
                 <div class="btn">
                     <input type="submit" value="Cadastrar">
