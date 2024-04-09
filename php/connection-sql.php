@@ -1,8 +1,8 @@
 <?php
     $host = "localhost";
-    $db = "id22020141_db_sitio3irmaos";
-    $user = "id22020141_admin";
-    $pass = "Joaopedro@12";
+    $db = "db_sitio3irmaos";
+    $user = "root";
+    $pass = "";
 
     $conn = new mysqli($host, $user, $pass, $db);
     if ($conn->connect_errno) {
