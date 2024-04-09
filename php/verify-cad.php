@@ -1,5 +1,5 @@
 <?php
-    include_once ("connection-sql.php");
+    require ("connection-sql.php");
 
     $nm = $_POST["nome"];
     $email = $_POST["email"];
@@ -11,14 +11,14 @@
 
     if ($nm == "" || $email == "" || $senha == "" || $logradouro == "" || $numero == "" || $bairro == "" || $celular == "") {
         echo "Voce deixou algum campo vazio, volte para preencher corretamente.";
-    } else {
+    } 
+    else {
         $sql = "INSERT INTO usuario (nome_completo, email, senha, logradouro, numero, bairro, celular) 
         VALUES ('$nm', '$email', '$senha', '$logradouro', '$numero', '$bairro', '$celular')";
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";
-        } else {
+        } 
+        else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
-
-        $conn->close();
 }
