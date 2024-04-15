@@ -1,5 +1,3 @@
-# sitiotresirmaos
- 
 # Sítio Três Irmãos
 
 O Sítio Três Irmãos é um projeto desenvolvido para automatizar o processo de compra e venda de queijos e leite, visando facilitar as operações e a gestão financeira do sítio.
