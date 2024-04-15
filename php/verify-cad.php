@@ -14,11 +14,13 @@
     $inserir = "INSERT INTO usuario (nome_completo, email, senha, logradouro, numero, bairro, celular) 
     VALUES ('$nm', '$email', '$senha', '$logradouro', '$numero', '$bairro', '$celular')";
 
+    $result = $conn->query($emailExiste);
+
     
     if ($nm == "" || $email == "" || $senha == "" || $logradouro == "" || $numero == "" || $bairro == "" || $celular == "") {
         echo "Voce deixou algum campo vazio, volte para preencher corretamente.";
     }
-    else if ($email = $conn->query($emailExiste)) {
+    else if ($result->num_rows > 0) {
             echo "Este email ja existe";
     }
     else if ($conn->query($inserir) === TRUE){
