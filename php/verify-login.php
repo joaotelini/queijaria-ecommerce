@@ -3,7 +3,7 @@
 
     session_start();
     
-    $email = $_POST["email"];
+    $email = filter_input(INPUT_POST, 'email');
     $senha = $_POST["senha"];
 
     $sql = "SELECT nome_completo, email, logradouro, numero, celular from usuario where email = '$email' and senha = '$senha'";
