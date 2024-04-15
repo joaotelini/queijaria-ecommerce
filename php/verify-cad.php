@@ -7,7 +7,7 @@
     $logradouro = $_POST["logradouro"];
     $numero = $_POST["numero"];
     $bairro = $_POST["bairro"];
-    $celular = $_POST["celular"];
+    $celular = $_POST["phone"];
 
     $emailExiste = "SELECT * FROM usuario WHERE email = '{$email}'";
 
