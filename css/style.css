@@ -59,6 +59,10 @@ input {
     font-size: 12px;
 }
 
+.capitalize {
+    text-transform: capitalize;
+}
+
 input::placeholder {
     padding-left: 10px;
 }
