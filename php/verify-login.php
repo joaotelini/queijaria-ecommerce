@@ -28,4 +28,3 @@
         // Se as credenciais estiverem incorretas, exibir uma mensagem de erro
         echo "Credenciais inválidas. Por favor, tente novamente.";
     }
-?>
