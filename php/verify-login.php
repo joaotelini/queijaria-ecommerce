@@ -4,22 +4,18 @@
     $email = $_POST["email"];
     $senha = $_POST["senha"];
 
-    $sqlSenha = "SELECT * FROM usuario WHERE senha = '{$senha}'";
-    $sqlEmail = "SELECT * FROM usuario WHERE email = '{$email}'";
+    // $sqlSenha = "SELECT * FROM usuario WHERE senha = '{$senha}'";
+    $sql = "SELECT * from usuario where email = '{$email}' and senha = '{$senha}'";
+    // $sqlEmail = "SELECT * FROM usuario WHERE email = '{$email}'";
 
     if ($email = "" || $senha == "") {
         echo "Voce deixou algum campo vazio";
     }
-
-    if ($senha = $conn->query($sqlSenha)) {
-        echo "<br>senha correta";
-    }
     else {
-        echo "<br>esta senha nao existe";
-    }
-    if ($email = $conn->query($sqlEmail)) {
-        echo "<br>email  correto";
-    }
-    else {
-        echo "<br>este email nao existe";
+        if ($email and $senha = $conn->query($sql)) {
+            echo "usuario existe";
+        }
+        else {
+            echo "nao existe";
+        }
     }
