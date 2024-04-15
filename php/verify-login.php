@@ -9,7 +9,7 @@
     $verificacaoDElogin = $consulta->num_rows;
 
     if ($verificacaoDElogin == 1) {
-        echo"usuario existe";
+        header('Location: index.php');
     }else{
         echo "usuario nao encontrado";
     }
