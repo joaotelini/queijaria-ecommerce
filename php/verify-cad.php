@@ -3,7 +3,7 @@
 
     $nm = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $senha = $_POST["senha"];
+    $senha = filter_input(INPUT_POST, 'senha');
     $logradouro = filter_input(INPUT_POST, 'logradouro', FILTER_SANITIZE_SPECIAL_CHARS);
     $numero = filter_input(INPUT_POST, 'numero', FILTER_SANITIZE_NUMBER_INT);
     $bairro = filter_input(INPUT_POST, 'bairro', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -24,7 +24,8 @@
             echo "Este email ja existe";
     }
     else if ($conn->query($inserir) === TRUE){
-            echo "Voce foi cadastrado com sucesso!";
+            header("../pages/cad.html");
+            exit();
         } 
         else {
             echo "Error: " . $inserir . "<br>" . $conn->error;
