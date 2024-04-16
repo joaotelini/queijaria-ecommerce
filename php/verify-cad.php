@@ -24,7 +24,8 @@
             echo "Este email ja existe";
     }
     else if ($conn->query($inserir) === TRUE){
-            echo "Voce foi cadastrado com sucesso!";
+            header("../pages/cad.html");
+            exit();
         } 
         else {
             echo "Error: " . $inserir . "<br>" . $conn->error;

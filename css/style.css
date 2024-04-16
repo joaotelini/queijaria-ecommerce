@@ -17,6 +17,11 @@ html {
     height: 100vh;
 }
 
+.container-coluna {
+    display: flex;
+    flex-direction: column;
+}
+
 .box {
     width: 331px;
     height: 478px;
@@ -116,4 +121,18 @@ input::placeholder {
 .p-cadastro-div a{
     text-decoration: none;
     color: #AB8130;
+}
+
+button {
+    color: #AB8130;
+    background-color: white;
+    border: none;
+    width: 176px;
+    height: 39px;
+    border-radius: 15px;
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+
 }
