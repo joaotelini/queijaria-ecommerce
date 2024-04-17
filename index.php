@@ -1,18 +1,18 @@
 <?php
-    // session_start();
+    session_start();
 
-    // // Verificar se o usuário está logado
-    // if (!isset($_SESSION['email'])) {
-    //     // Se o usuário não estiver logado, redirecionar para a página de login
-    //     header('Location: welcome.html');
-    //     exit();
-    // } else {
-    //     // Se o usuário estiver logado, exibir os dados do usuário
-    //     $nome = $_SESSION['nome_completo'];
-    //     $email = $_SESSION['email'];
-    //     $logradouro = $_SESSION['logradouro'];
-    //     $numero = $_SESSION['numero'];
-    //     $celular = $_SESSION['celular'];
+    // Verificar se o usuário está logado
+    if (!isset($_SESSION['email'])) {
+        // Se o usuário não estiver logado, redirecionar para a página de login
+        header('Location: welcome.html');
+        exit();
+    } else {
+        // Se o usuário estiver logado, exibir os dados do usuário
+        $nome = $_SESSION['nome_completo'];
+        $email = $_SESSION['email'];
+        $logradouro = $_SESSION['logradouro'];
+        $numero = $_SESSION['numero'];
+        $celular = $_SESSION['celular'];
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +94,7 @@
         <div class="col-sm-6 col-lg-4">
           <div class="box">
             <div class="img-box">
-              <img src="images/p1.png" alt="">
+              <img src="assets/img/p1.png" alt="">
               <a href="" class="add_cart_btn">
                 <span>
                   Adcionar no carrinho
@@ -118,7 +118,7 @@
         <div class="col-sm-6 col-lg-4">
           <div class="box">
             <div class="img-box">
-              <img src="images/p2.png" alt="">
+              <img src="assets/img/p1.png" alt="">
               <a href="" class="add_cart_btn">
                 <span>
                   Adcionar no carrinho
@@ -140,7 +140,7 @@
         <div class="col-sm-6 col-lg-4">
           <div class="box">
             <div class="img-box">
-              <img src="images/p3.png" alt="">
+              <img src="assets/img/p1.png" alt="">
               <a href="" class="add_cart_btn">
                 <span>
                   Adcionar no carrinho
@@ -174,5 +174,5 @@
 
 
 <?php
-    // }
+    }
 ?>
