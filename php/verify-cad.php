@@ -6,7 +6,7 @@
     $nm = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $senha = filter_input(INPUT_POST, 'senha');
-    $hash = password_hash($senha, PASSWORD_DEFAULT);
+    $hash = password_hash($senha, PASSWORD_DEFAULT); // Gerar o hash da senha
     $logradouro = filter_input(INPUT_POST, 'logradouro', FILTER_SANITIZE_SPECIAL_CHARS);
     $numero = filter_input(INPUT_POST, 'numero', FILTER_SANITIZE_NUMBER_INT);
     $bairro = filter_input(INPUT_POST, 'bairro', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -15,7 +15,7 @@
     $emailExiste = "SELECT * FROM usuario WHERE email = '{$email}'";
 
     $inserir = "INSERT INTO usuario (nome_completo, email, senha, logradouro, numero, bairro, celular) 
-    VALUES ('$nm', '$email', '$senha', '$logradouro', '$numero', '$bairro', '$celular')";
+    VALUES ('$nm', '$email', '$hash', '$logradouro', '$numero', '$bairro', '$celular')";
 
     $result = $conn->query($emailExiste);
 
