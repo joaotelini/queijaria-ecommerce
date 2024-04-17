@@ -1,9 +1,12 @@
 <?php
     require ("connection-sql.php");
 
+    // Protecao nos campos do formulario
+
     $nm = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $senha = filter_input(INPUT_POST, 'senha');
+    $hash = password_hash($senha, PASSWORD_DEFAULT);
     $logradouro = filter_input(INPUT_POST, 'logradouro', FILTER_SANITIZE_SPECIAL_CHARS);
     $numero = filter_input(INPUT_POST, 'numero', FILTER_SANITIZE_NUMBER_INT);
     $bairro = filter_input(INPUT_POST, 'bairro', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -24,7 +27,7 @@
             echo "Este email ja existe";
     }
     else if ($conn->query($inserir) === TRUE){
-            header("../pages/cad.html");
+            header("Location: ../pages/cad.html");
             exit();
         } 
         else {
