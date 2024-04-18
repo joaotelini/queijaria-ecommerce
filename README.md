@@ -22,7 +22,7 @@ O projeto tem como objetivo principal substituir o antigo método de anotações
 
 ## Tecnologias Utilizadas
 
-- Frontend: HTML, CSS, JavaScript.
+- Frontend: HTML, CSS, JavaScript, BootStrap.
 - Backend: PHP.
 - Banco de Dados: MySQL.
 
