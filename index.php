@@ -48,6 +48,8 @@
 </head>
 
 <body class="sub_page">
+    <div id="notificacao" class="notificacao"></div>
+
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">

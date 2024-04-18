@@ -24,6 +24,17 @@ function addProduto(nome, preco) {
     };
     carrinho.push(item);
     atualizarCarrinho();
+    mostrarNotificacao(nome);
+}
+
+// Funcao para notificar um item adicionado no carrinho
+function mostrarNotificacao(nome) {
+    const notificacao = document.getElementById('notificacao');
+    notificacao.textContent = nome + ' adicionado no carrinho.'
+    notificacao.style.display = 'block';
+    setTimeout(function() {
+        notificacao.style.display = 'none';
+    }, 3000); // Esconde a notificação após 3 segundos
 }
 
 // Função para remover um produto do carrinho
