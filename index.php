@@ -25,13 +25,11 @@
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
-  <link rel="icon" href="images/fevicon.png" type="image/gif" />
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
 
   <title>Produtos</title>
-
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -69,7 +67,7 @@
                   <a class="nav-link" href="#">Minha conta</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Carrinho</a>
+                  <a class="nav-link" id="btnMostrarCarrinho" href="#">Carrinho</a>
                 </li>
               </ul>
             </div>
@@ -80,9 +78,18 @@
     <!-- end header section -->
   </div>
 
+  <!-- Modal do Carrinho -->
+  <div id="modalCarrinho" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Seu Carrinho</h2>
+      <div id="itens-carrinho-modal"></div>
+      <p>Total: R$<span id="total">0</span></p>
+      <button onclick="limparCarrinho()">Limpar Carrinho</button>
+    </div>
+  </div>
 
   <!-- product section -->
-
   <section class="product_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
@@ -95,22 +102,12 @@
           <div class="box">
             <div class="img-box">
               <img src="assets/img/p1.png" alt="">
-              <a href="" class="add_cart_btn">
-                <span>
-                  Adcionar no carrinho
-                </span>
-              </a>
             </div>
             <div class="detail-box">
-              <h5>
-                <!-- Colocar nome do produto -->
-                Nome do Produto
-              </h5>
+              <h5>Queijo Fresco</h5>
               <div class="product_info">
-                <h5>
-                  <!-- COLOCAR O PREÇO DO PRODUTO -->
-                  <span>R$35</span>
-                </h5>
+                <h5><span>R$40</span></h5>
+                <button onclick="addProduto('Queijo Fresco', 40)">Adicionar ao Carrinho</button>
               </div>
             </div>
           </div>
@@ -119,20 +116,12 @@
           <div class="box">
             <div class="img-box">
               <img src="assets/img/p1.png" alt="">
-              <a href="" class="add_cart_btn">
-                <span>
-                  Adcionar no carrinho
-                </span>
-              </a>
             </div>
             <div class="detail-box">
-              <h5>
-                Product Name
-              </h5>
+              <h5>Queijo Curado</h5>
               <div class="product_info">
-                <h5>
-                  <span>R$300</span>
-                </h5>
+                <h5><span>R$50</span></h5>
+                <button onclick="addProduto('Queijo Curado', 50)">Adicionar ao Carrinho</button>
               </div>
             </div>
           </div>
@@ -141,24 +130,17 @@
           <div class="box">
             <div class="img-box">
               <img src="assets/img/p1.png" alt="">
-              <a href="" class="add_cart_btn">
-                <span>
-                  Adcionar no carrinho
-                </span>
-              </a>
             </div>
             <div class="detail-box">
-              <h5>
-                Product Name
-              </h5>
+              <h5>Leite 2L</h5>
               <div class="product_info">
-                <h5>
-                  <span>R$300</span>
-                </h5>
+                <h5><span>R$10</span></h5>
+                <button onclick="addProduto('Leite 2L', 10)">Adicionar ao Carrinho</button>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </div>
   </section>
   <!-- end product section -->
@@ -167,11 +149,12 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- bootstrap js -->
   <script src="js/bootstrap.js"></script>
-  <!-- custom js -->
-  <script src="js/custom.js"></script>
-</body>
-</html>
 
+  <!-- carrinho de compras -->
+  <script src="js/carrinho.js"></script>
+</body>
+
+</html>
 
 <?php
     }
