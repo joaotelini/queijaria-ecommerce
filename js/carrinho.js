@@ -18,13 +18,27 @@ closeBtn.onclick = function() {
 
 // Função para adicionar um produto ao carrinho
 function addProduto(nome, preco) {
-    let item = { 
-        nome: nome, 
-        preco: preco
-    };
-    carrinho.push(item);
+    let itemExiste = carrinho.find(item => item.nome === nome);
+
+    if (itemExiste) {
+        // Se o item já existe no carrinho, incrementar a quantidade
+        itemExiste.quantidade++;
+
+        // Mostrar notificação de quantidade
+        mostrarNotificacao(itemExiste.nome, itemExiste.quantidade);
+    } else {
+        // Se o item não existe no carrinho, adicionar como um novo item
+        let novoItem = {
+            nome: nome,
+            preco: preco,
+            quantidade: 1
+        };
+        carrinho.push(novoItem);
+
+        // Mostrar notificação de adição
+        mostrarNotificacao(novoItem.nome, novoItem.quantidade);
+    }
     atualizarCarrinho();
-    mostrarNotificacao(nome);
 }
 
 // Funcao para notificar um item adicionado no carrinho
@@ -58,10 +72,11 @@ function atualizarCarrinho() {
     // Limpa a lista de itens do carrinho
     itensCarrinho.innerHTML = "";
 
+
     // Adiciona cada item do carrinho à lista e calcula o total
     carrinho.forEach(function(item, index) {
         total += item.preco;
-        itensCarrinho.innerHTML += "<li>" + item.nome + " - $" + item.preco + " <button onclick='removerProduto(" + index + ")'>Remover</button></li>";
+        itensCarrinho.innerHTML += "<li>" + item.quantidade + " - " + item.nome + " - R$" + item.preco + " <button class='remover' onclick='removerProduto(" + index + ")'>Remover</button></li>";
     });
 
     // Atualiza o total

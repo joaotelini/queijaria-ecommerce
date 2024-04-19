@@ -113,7 +113,7 @@
               <h5>Queijo Fresco</h5>
               <div class="product_info">
                 <h5><span>R$40</span></h5>
-                <button onclick="addProduto('Queijo Fresco', 40)">Adicionar ao Carrinho</button>
+                <button onclick="addProduto('Queijo Fresco', 40, 1)">Adicionar ao Carrinho</button>
               </div>
             </div>
           </div>

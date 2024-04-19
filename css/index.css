@@ -800,6 +800,15 @@ body {
   border: 3px solid;
 }
 
+.remover {
+  max-width: 150px;
+  padding: 10px;
+}
+
+li {
+  list-style-type: none;
+}
+
 .buttons {
   display: flex;
   flex-direction: row-reverse;
