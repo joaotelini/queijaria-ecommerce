@@ -10,12 +10,6 @@ btnMostrarCarrinho.onclick = function() {
   modalCarrinho.style.display = "block"; // Exibir o modal
 }
 
-// Adicionar funcionalidade para fechar o modal ao clicar no botão 'X'
-var closeBtn = document.getElementsByClassName("close")[0];
-closeBtn.onclick = function() {
-  modalCarrinho.style.display = "none"; // Ocultar o modal
-}
-
 // Função para adicionar um produto ao carrinho
 function addProduto(nome, preco) {
     let itemExiste = carrinho.find(item => item.nome === nome);
@@ -39,7 +33,40 @@ function addProduto(nome, preco) {
         mostrarNotificacao(novoItem.nome, novoItem.quantidade);
     }
     atualizarCarrinho();
+
+    // Enviar os dados do carrinho para o servidor
+    enviarCarrinhoParaServidor();
 }
+
+// Função para enviar os dados do carrinho para o servidor
+function enviarCarrinhoParaServidor() {
+    // Converter o carrinho para JSON
+    let carrinhoJSON = JSON.stringify(carrinho);
+
+    // Configurar a requisição AJAX
+    let xhr = new XMLHttpRequest();
+    let url = "php/processar_carrinho.php";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    // Lidar com a resposta do servidor
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText); // Exibir a resposta do servidor no console (opcional)
+        }
+    };
+
+    // Enviar a requisição com os dados do carrinho
+    xhr.send(carrinhoJSON);
+}
+
+
+// Adicionar funcionalidade para fechar o modal ao clicar no botão 'X'
+var closeBtn = document.getElementsByClassName("close")[0];
+closeBtn.onclick = function() {
+  modalCarrinho.style.display = "none"; // Ocultar o modal
+}
+
 
 // Funcao para notificar um item adicionado no carrinho
 function mostrarNotificacao(nome) {
