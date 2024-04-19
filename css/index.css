@@ -794,6 +794,17 @@ body {
   background-color: rgba(0,0,0,0.5); /* Fundo escuro com transparência */
 }
 
+.modal button{
+  width: 50%;
+  border-radius: 0px;
+  border: 3px solid;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .modal-content {
   background-color: #fefefe;
   margin: 10% auto; /* Centralizar verticalmente e alinhar ao centro */

@@ -86,8 +86,12 @@
       <span class="close">&times;</span>
       <h2>Seu Carrinho</h2>
       <div id="itens-carrinho-modal"></div>
-      <p>Total: R$<span id="total">0</span></p>
-      <button onclick="limparCarrinho()">Limpar Carrinho</button>
+      <p>Total: R$<span id="total">0.00</span></p>
+      <div class="buttons">
+        <button onclick="limparCarrinho()">Limpar Carrinho</button>
+        <button>Comprar</button>
+      </div>
+      
     </div>
   </div>
 
