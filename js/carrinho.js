@@ -33,15 +33,20 @@ function addProduto(nome, preco) {
         mostrarNotificacao(novoItem.nome, novoItem.quantidade);
     }
     atualizarCarrinho();
-
-    // Enviar os dados do carrinho para o servidor
-    enviarCarrinhoParaServidor();
 }
 
 // Função para enviar os dados do carrinho para o servidor
 function enviarCarrinhoParaServidor() {
     // Converter o carrinho para JSON
     let carrinhoJSON = JSON.stringify(carrinho);
+    let min = 1;
+    let max = 9999;
+    let numPedido = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    // Adicionar o número do pedido ao objeto do carrinho
+    carrinho.forEach(item => {
+        item.numPedido = numPedido;
+    });
 
     // Configurar a requisição AJAX
     let xhr = new XMLHttpRequest();
@@ -58,6 +63,24 @@ function enviarCarrinhoParaServidor() {
 
     // Enviar a requisição com os dados do carrinho
     xhr.send(carrinhoJSON);
+}
+
+function comprar() {
+    // Gerar um número aleatório para o pedido
+    let min = 1;
+    let max = 9999;
+    let numPedido = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    // Adicionar o número do pedido aos itens do carrinho
+    carrinho.forEach(item => {
+        item.numPedido = numPedido;
+    });
+
+    // Enviar os dados do carrinho para o servidor
+    enviarCarrinhoParaServidor();
+    
+    // Redirecionar o usuário para a página de confirmação
+    window.location.href = "pagina_de_confirmacao.php";
 }
 
 
@@ -99,11 +122,13 @@ function atualizarCarrinho() {
     // Limpa a lista de itens do carrinho
     itensCarrinho.innerHTML = "";
 
-
     // Adiciona cada item do carrinho à lista e calcula o total
     carrinho.forEach(function(item, index) {
-        total += item.preco;
-        itensCarrinho.innerHTML += "<li>" + item.quantidade + " - " + item.nome + " - R$" + item.preco + " <button class='remover' onclick='removerProduto(" + index + ")'>Remover</button></li>";
+        // Calcula o subtotal do item (preço * quantidade)
+        let subtotal = item.preco * item.quantidade;
+        total += subtotal; // Adiciona o subtotal ao total
+        // Adiciona o item à lista com a quantidade, nome, preço e subtotal
+        itensCarrinho.innerHTML += "<li>" + item.quantidade + " - " + item.nome + " - R$" + item.preco + " (Subtotal: R$" + subtotal.toFixed(2) + ") <button class='remover' onclick='removerProduto(" + index + ")'>Remover</button></li>";
     });
 
     // Atualiza o total

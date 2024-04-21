@@ -89,7 +89,7 @@
       <p>Total: R$<span id="total">0.00</span></p>
       <div class="buttons">
         <button onclick="limparCarrinho()">Limpar Carrinho</button>
-        <button>Comprar</button>
+        <button onclick="comprar()">Comprar</button>
       </div>
       
     </div>
