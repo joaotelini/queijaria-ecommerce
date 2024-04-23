@@ -80,7 +80,7 @@ function comprar() {
     enviarCarrinhoParaServidor();
     
     // Redirecionar o usuário para a página de confirmação
-    window.location.href = "pagina_de_confirmacao.php";
+    // window.location.href = "pagina_de_confirmacao.php";
 }
 
 

@@ -8,6 +8,7 @@
         exit();
     } else {
         // Se o usuário estiver logado, exibir os dados do usuário
+        $usuario_id = $_SESSION['id'];
         $nome = $_SESSION['nome_completo'];
         $email = $_SESSION['email'];
         $logradouro = $_SESSION['logradouro'];
