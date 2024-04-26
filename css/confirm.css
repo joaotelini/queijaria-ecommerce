@@ -1,0 +1,21 @@
+.right {
+    float: right;
+    width: 50%;
+    background-color: aliceblue;
+}
+
+.left {
+    float: left;
+    width: 50%;
+    background-color: aquamarine;
+}
+
+button {
+    background-color: #AB8130;
+    color: white;
+}
+
+img {
+    width:100px;
+    height: 100px;
+}
