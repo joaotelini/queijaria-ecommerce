@@ -56,8 +56,14 @@ function enviarCarrinhoParaServidor() {
 
     // Lidar com a resposta do servidor
     xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(xhr.responseText); // Exibir a resposta do servidor no console (opcional)
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                // A requisição foi bem-sucedida, você pode redirecionar ou fazer outras ações aqui
+                window.location.href = "./php/payment.php";
+            } else {
+                // Algo deu errado, você pode lidar com isso aqui, por exemplo, exibindo uma mensagem de erro
+                console.error("Erro ao processar carrinho:", xhr.responseText);
+            }
         }
     };
 
@@ -78,9 +84,6 @@ function comprar() {
 
     // Enviar os dados do carrinho para o servidor
     enviarCarrinhoParaServidor();
-    
-    // Redirecionar o usuário para a página de confirmação
-    window.location.href = "../pages/confirm.html";
 }
 
 
