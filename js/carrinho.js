@@ -37,16 +37,18 @@ function addProduto(nome, preco) {
 
 // Função para enviar os dados do carrinho para o servidor
 function enviarCarrinhoParaServidor() {
-    // Converter o carrinho para JSON
-    let carrinhoJSON = JSON.stringify(carrinho);
+    // Gerar um número aleatório para o pedido
     let min = 1;
     let max = 9999;
     let numPedido = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    // Adicionar o número do pedido ao objeto do carrinho
+    // Adicionar o número do pedido a cada item no carrinho
     carrinho.forEach(item => {
         item.numPedido = numPedido;
     });
+
+    // Converter o carrinho para JSON
+    let carrinhoJSON = JSON.stringify(carrinho);
 
     // Configurar a requisição AJAX
     let xhr = new XMLHttpRequest();
@@ -58,31 +60,21 @@ function enviarCarrinhoParaServidor() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                // A requisição foi bem-sucedida, você pode redirecionar ou fazer outras ações aqui
+                // A requisição foi bem-sucedida
+
                 let totalPedido = calcularTotalPedido();
-                // Redirecionar o usuário para a página de pagamento, passando o valor do pedido como parâmetro
-                window.location.href = `./pages/payment.html?total_pedido=${totalPedido}`;
+
+                // Redirecionar o usuário para a página de pagamento, passando o valor total do pedido e o número do pedido como parâmetros
+                window.location.href = `./pages/payment.html?total_pedido=${totalPedido}&num_pedido=${numPedido}`;
+            } else {
+                // Algo deu errado
+                console.error("Erro ao processar pedido:", xhr.responseText);
             }
         }
     };
 
     // Enviar a requisição com os dados do carrinho
     xhr.send(carrinhoJSON);
-}
-
-function comprar() {
-    // Gerar um número aleatório para o pedido
-    let min = 1;
-    let max = 9999;
-    let numPedido = Math.floor(Math.random() * (max - min + 1)) + min;
-
-    // Adicionar o número do pedido aos itens do carrinho
-    carrinho.forEach(item => {
-        item.numPedido = numPedido;
-    });
-
-    // Enviar os dados do carrinho para o servidor
-    enviarCarrinhoParaServidor();
 }
 
 function calcularTotalPedido() {

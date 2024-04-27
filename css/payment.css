@@ -11,11 +11,15 @@
 }
 
 button {
-    background-color: #AB8130;
-    color: white;
+    background-color: white;
+    color: #AB8130;
 }
 
 img {
     width:100px;
     height: 100px;
+}
+
+h3 {
+    color: white;
 }

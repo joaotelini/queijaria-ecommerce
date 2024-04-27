@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/payment.css">
+    <title>Pagamento</title>
 </head>
 <body>
+    <div class="container container-coluna">
 
+        <h1>Pedido realizado com sucesso!</h1>
+        <br>
+        <p>Clique no botão para copiar a chave pix e realizar o pagamento do seu pedido</p>    
+        <br>
+        <h3 id="numPedido"></h3>
+        <h3 id="valorPedido"></h3>
+        <button onclick="copiar()" id="execCopy">Copiar chave pix <span id="tooltip"></span></button>
+        <br>
+        <h3 id="h3"></h3>
+
+    </div>
     
-    <h1>Detalhes do Pedido</h1>
-    <div id="valorPedido"></div>
 
-    <script>
-        // Função para obter o parâmetro da URL
-        function getParametroURL(nome) {
-            const parametros = new URLSearchParams(window.location.search);
-            return parametros.get(nome);
-        }
-
-        // Obter o valor do pedido da URL
-        const valorPedido = getParametroURL('total_pedido');
-
-        // Exibir o valor do pedido na página
-        document.getElementById('valorPedido').textContent = `Valor do Pedido: R$ ${valorPedido}`;
-    </script>
+    <script src="../js/valor_pix.js"></script>
 </body>
 </html>
