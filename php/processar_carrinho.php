@@ -54,8 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepara e executa a consulta SQL para inserir os dados do pedido na tabela `pedido`
-    $stmt = $conn->prepare("INSERT INTO pedido (num_pedido, valor_pedido) VALUES (?, ?)");
-    $stmt->bind_param("id", $numPedido, $total_pedido);
+    $n = "Não";
+    $stmt = $conn->prepare("INSERT INTO pedido (num_pedido, valor_pedido, pago) VALUES (?, ?, ?)");
+    $stmt->bind_param("ids", $numPedido, $total_pedido, $n);
     $stmt->execute();
     $stmt->close();
 
