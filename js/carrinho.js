@@ -59,10 +59,9 @@ function enviarCarrinhoParaServidor() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 // A requisição foi bem-sucedida, você pode redirecionar ou fazer outras ações aqui
-                window.location.href = "./php/payment.php";
-            } else {
-                // Algo deu errado, você pode lidar com isso aqui, por exemplo, exibindo uma mensagem de erro
-                console.error("Erro ao processar carrinho:", xhr.responseText);
+                let totalPedido = calcularTotalPedido();
+                // Redirecionar o usuário para a página de pagamento, passando o valor do pedido como parâmetro
+                window.location.href = `./pages/payment.html?total_pedido=${totalPedido}`;
             }
         }
     };
@@ -86,6 +85,16 @@ function comprar() {
     enviarCarrinhoParaServidor();
 }
 
+function calcularTotalPedido() {
+    let total = 0;
+
+    // Iterar sobre cada item no carrinho e adicionar seu preço ao total
+    carrinho.forEach(item => {
+        total += item.preco * item.quantidade;
+    });
+
+    return total.toFixed(2); // Arredondar o total para 2 casas decimais
+}
 
 // Adicionar funcionalidade para fechar o modal ao clicar no botão 'X'
 var closeBtn = document.getElementsByClassName("close")[0];
@@ -130,6 +139,7 @@ function atualizarCarrinho() {
         // Calcula o subtotal do item (preço * quantidade)
         let subtotal = item.preco * item.quantidade;
         total += subtotal; // Adiciona o subtotal ao total
+
         // Adiciona o item à lista com a quantidade, nome, preço e subtotal
         itensCarrinho.innerHTML += "<li>" + item.quantidade + " - " + item.nome + " - R$" + item.preco + " (Subtotal: R$" + subtotal.toFixed(2) + ") <button class='remover' onclick='removerProduto(" + index + ")'>Remover</button></li>";
     });

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+</head>
+<body>
+
+    
+    <h1>Detalhes do Pedido</h1>
+    <div id="valorPedido"></div>
+
+    <script>
+        // Função para obter o parâmetro da URL
+        function getParametroURL(nome) {
+            const parametros = new URLSearchParams(window.location.search);
+            return parametros.get(nome);
+        }
+
+        // Obter o valor do pedido da URL
+        const valorPedido = getParametroURL('total_pedido');
+
+        // Exibir o valor do pedido na página
+        document.getElementById('valorPedido').textContent = `Valor do Pedido: R$ ${valorPedido}`;
+    </script>
+</body>
+</html>
