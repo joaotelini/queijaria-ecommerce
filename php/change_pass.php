@@ -29,10 +29,10 @@
         }
         else {
             echo "Esse email nao esta cadastrado";
-            echo "<br>Volte para corrigir";
+            echo "<br><a href='../pages/change_pass.html'>Volte para corrigir</a>";
         }
     }
     else {
         echo "Algo deu errado";
-        echo "<br>Volte para corrigir";
+        echo "<br><a href='../pages/change_pass.html'>Volte para corrigir</a>";
     }
