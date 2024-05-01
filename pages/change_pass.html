@@ -1,0 +1,24 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/change_pass.css">
+    <title>Mudar senha</title>
+</head>
+<body>
+    <div class="container container-coluna">
+            <form action="../php/change_pass.php" method="post">
+                <p>Email:</p><input placeholder="Digite seu email" type="email" name="email" id="">
+                <p>Senha:</p><input placeholder="Digite sua senha" type="password" name="senha1" id="">
+                <p>Confirmar senha:</p><input minlength="8" placeholder="Digite novamente sua senha" type="password" name="senha2" id="">
+                <br>
+                <input class="botao"  type="submit" value="Trocar Senha">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
